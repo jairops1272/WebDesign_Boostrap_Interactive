@@ -31,7 +31,7 @@ body {
 }
 
 /* =========================================
-   NAVBAR PREMIUM [cite: 321, 322]
+   MAGIC NAVBAR ANIMATION [cite: 321, 322]
    ========================================= */
 .bg-dark-transparent {
     background: rgba(0, 0, 0, 0.4) !important;
@@ -40,15 +40,41 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Indicador mágico que se desliza bajo el texto */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #00d2ff;
+    transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #00d2ff !important;
+    transform: translateY(-2px);
+}
+
 /* =========================================
    TARJETA GLASSMORPHISM 2.0
    ========================================= */
 .form-card {
-    background: rgba(255, 255, 255, 0.1) !important; /* Más transparente para el efecto premium [cite: 400] */
-    backdrop-filter: blur(25px) !important; /* Desenfoque más profundo  */
+    background: rgba(255, 255, 255, 0.1) !important; /* Más transparente para efecto premium [cite: 400] */
+    backdrop-filter: blur(25px) !important; /* Desenfoque más profundo */
     -webkit-backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Borde más sutil [cite: 403] */
-    border-radius: 40px !important; /* Bordes extra redondeados como en el video [cite: 404] */
+    border-radius: 40px !important; /* Bordes extra redondeados [cite: 404] */
     max-width: 550px;
     width: 90%;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
@@ -72,7 +98,7 @@ body {
 
 .form-control, .form-select {
     background-color: white !important;
-    border-radius: 0; /* Controlado por el contenedor premium */
+    border-radius: 0; 
 }
 
 .input-group-text {
@@ -97,11 +123,11 @@ body {
 
 .btn-glow-premium:hover {
     transform: translateY(-3px); /* [cite: 445] */
-    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5); /* Brillo intenso al pasar el mouse */
+    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5); 
 }
 
 /* =========================================
-   FOOTER Y GITHUB [cite: 332, 333, 347]
+   MAGIC SOCIAL MENU (FOOTER & GITHUB) [cite: 332, 333, 347]
    ========================================= */
 .footer-glass {
     background: rgba(255, 255, 255, 0.05);
@@ -112,18 +138,52 @@ body {
 }
 
 .github-link {
-    color: white;
-    font-size: 3rem;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    text-decoration: none;
     display: inline-block;
+    position: relative;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+.github-link i {
+    font-size: 3rem;
+    color: white;
+    transition: all 0.5s;
+}
+
+/* Animación elástica y rotación del logo */
 .github-link:hover {
-    color: #00d2ff;
-    transform: scale(1.2) rotate(8deg); /* Animación de rotación sutil */
-    text-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+    background: #00d2ff;
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.github-link:hover i {
+    color: #111;
+    transform: rotate(360deg);
+}
+
+/* Efecto de pulso "Magic" */
+.github-link::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    background: #00d2ff;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.github-link:hover::before {
+    animation: pulseMagic 1.5s infinite;
+}
+
+@keyframes pulseMagic {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.6); opacity: 0; }
 }
 
 /* UTILIDADES */
