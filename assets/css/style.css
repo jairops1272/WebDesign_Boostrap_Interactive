@@ -2,10 +2,9 @@
    CONFIGURACIÓN DE FONDO Y CUERPO
    ========================================= */
 body {
-    /* Overlay oscuro para resaltar el Glassmorphism [cite: 147, 452] */
     background: linear-gradient(rgba(10, 10, 20, 0.7), rgba(10, 10, 20, 0.7)), 
                 url('../img/fondo.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-size: cover; [cite: 147, 452]
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     margin: 0;
@@ -16,14 +15,8 @@ body {
    ANIMACIONES (Efecto Reel de FB)
    ========================================= */
 @keyframes slideUp {
-    from { 
-        opacity: 0; 
-        transform: translateY(30px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-up { 
@@ -31,10 +24,10 @@ body {
 }
 
 /* =========================================
-   MAGIC NAVBAR ANIMATION [cite: 321, 322]
+   MAGIC NAVBAR ANIMATION
    ========================================= */
 .bg-dark-transparent {
-    background: rgba(0, 0, 0, 0.4) !important;
+    background: rgba(0, 0, 0, 0.4) !important; [cite: 321, 322]
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -45,7 +38,6 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Indicador mágico que se desliza bajo el texto */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -70,11 +62,11 @@ body {
    TARJETA GLASSMORPHISM 2.0
    ========================================= */
 .form-card {
-    background: rgba(255, 255, 255, 0.1) !important; /* Más transparente para efecto premium [cite: 400] */
-    backdrop-filter: blur(25px) !important; /* Desenfoque más profundo */
+    background: rgba(255, 255, 255, 0.1) !important; [cite: 400]
+    backdrop-filter: blur(25px) !important;
     -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Borde más sutil [cite: 403] */
-    border-radius: 40px !important; /* Bordes extra redondeados [cite: 404] */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important; [cite: 403]
+    border-radius: 40px !important; [cite: 404]
     max-width: 550px;
     width: 90%;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
@@ -102,7 +94,7 @@ body {
 }
 
 .input-group-text {
-    color: #3a7bd5 !important; /* Color base del icono [cite: 502] */
+    color: #3a7bd5 !important; [cite: 502]
     background-color: white !important;
 }
 
@@ -110,7 +102,7 @@ body {
    BOTÓN CON EFECTO GLOW (BRILLO)
    ========================================= */
 .btn-glow-premium {
-    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%) !important; /* [cite: 432] */
+    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%) !important; [cite: 432]
     color: white !important;
     border: none !important;
     border-radius: 15px !important;
@@ -122,68 +114,124 @@ body {
 }
 
 .btn-glow-premium:hover {
-    transform: translateY(-3px); /* [cite: 445] */
+    transform: translateY(-3px); [cite: 445]
     box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5); 
 }
 
 /* =========================================
-   MAGIC SOCIAL MENU (FOOTER & GITHUB) [cite: 332, 333, 347]
+   MAGIC CIRCULAR MENU (FOOTER)
    ========================================= */
 .footer-glass {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05); [cite: 332, 333, 347]
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
 }
 
-.github-link {
-    display: inline-block;
+.magic-menu-container {
     position: relative;
-    padding: 15px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-node {
+    position: relative;
+    width: 60px;
+    height: 60px;
     background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    text-decoration: none;
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.github-link i {
-    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    transition: all 0.5s;
+    font-size: 2.2rem;
+    z-index: 10;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Animación elástica y rotación del logo */
-.github-link:hover {
+.magic-menu-container:hover .main-node {
+    transform: rotate(360deg) scale(0.85);
     background: #00d2ff;
-    box-shadow: 0 0 30px rgba(0, 210, 255, 0.6);
-    transform: scale(1.2);
-}
-
-.github-link:hover i {
     color: #111;
-    transform: rotate(360deg);
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.6);
 }
 
-/* Efecto de pulso "Magic" */
-.github-link::before {
-    content: '';
+.floating-items {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: 50%;
-    background: #00d2ff;
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+
+.floating-items li {
+    position: absolute;
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
     opacity: 0;
-    transition: all 0.5s;
+    transform: rotate(0deg) translateX(0px);
 }
 
-.github-link:hover::before {
-    animation: pulseMagic 1.5s infinite;
+.magic-menu-container:hover .floating-items li {
+    /* Distribuye los iconos en círculo */
+    transform: rotate(calc(360deg / 3 * var(--i))) translateX(100px);
+    opacity: 1;
 }
 
-@keyframes pulseMagic {
-    0% { transform: scale(1); opacity: 0.5; }
-    100% { transform: scale(1.6); opacity: 0; }
+.floating-items li i, .floating-items li a {
+    /* Contrarresta la rotación para que el icono se vea derecho */
+    transform: rotate(calc(-360deg / 3 * var(--i)));
+    width: 45px;
+    height: 45px;
+    background: white;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.floating-items li:hover i, .floating-items li:hover a {
+    background: #00d2ff;
+    color: white;
+    transform: rotate(calc(-360deg / 3 * var(--i))) scale(1.2);
+}
+
+/* CUADROS DE INFORMACIÓN (TOOLTIPS) */
+.floating-items li::after {
+    content: attr(data-info);
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%) rotate(calc(-360deg / 3 * var(--i)));
+    background: #111;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.floating-items li:hover::after {
+    opacity: 1;
+    top: -55px;
 }
 
 /* UTILIDADES */
